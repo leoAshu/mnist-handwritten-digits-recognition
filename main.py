@@ -7,7 +7,7 @@ def main():
     model = models.load_model('model/mnistModel.h5')
 
     # initialize video writer object
-    out = cv.VideoWriter('data/output.mp4', -1, 20.0, (512,512))
+    # out = cv.VideoWriter('data/output.mp4', -1, 20.0, (512,512))
 
 
     # input user choice
@@ -103,16 +103,23 @@ def main():
             )
 
         # display digits
-        cv.imshow('roi-1', digits[0])
-        cv.imshow('roi-2', digits[1])
-        cv.imshow('roi-3', digits[2])
-        cv.imshow('roi-4', digits[3])
+        if len(digits) >= 1:
+            cv.imshow('roi-1', digits[0])
+        
+        if len(digits) >= 2:
+            cv.imshow('roi-2', digits[1])
+
+        if len(digits) >= 3:
+            cv.imshow('roi-3', digits[2])
+
+        if len(digits) >= 4:            
+            cv.imshow('roi-4', digits[3])
 
         # display image with bounding boxes
         cv.imshow('output', frame)
 
         # write the frame to the output video
-        out.write(frame)
+        # out.write(frame)
 
         if cv.waitKey(1) & 0xFF == ord('q'):
             break
