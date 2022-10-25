@@ -1,0 +1,2 @@
+# ignore __pycache__ in scripts folder
+__pycache__
