@@ -6,6 +6,9 @@ def main():
     # initialize model
     model = models.load_model('model/mnistModel.h5')
 
+    # initialize video writer object
+    out = cv.VideoWriter('data/output.mp4', -1, 20.0, (512,512))
+
 
     # input user choice
     # 0 - Use Webcam
@@ -107,6 +110,9 @@ def main():
 
         # display image with bounding boxes
         cv.imshow('output', frame)
+
+        # write the frame to the output video
+        out.write(frame)
 
         if cv.waitKey(1) & 0xFF == ord('q'):
             break
