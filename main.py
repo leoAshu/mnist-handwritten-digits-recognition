@@ -149,10 +149,6 @@ def preprocess_image(image):
 
 
 def resize(image, size):
-    if 0 in image.shape:
-        return image
-    if size == 0:
-        return image
     # get dimensions of the image
     h, w = len(image), len(image[0])
 
